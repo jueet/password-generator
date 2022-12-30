@@ -1,34 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
+import Checkbox from "./components/Checkbox";
+import Slider from "./components/Slider";
+import { generatePassword } from "./utils/pass-generator";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [password, setPassword] = useState("");
+  const [passwordLength, setPasswordLenght] = useState(8);
+  const [upper, setUpper] = useState(true);
+  const [lower, setLower] = useState(true);
+  const [numbers, setNumbers] = useState(true);
+  const [special, setSpecial] = useState(false);
+
+  useEffect(() => {
+    setPassword(() =>
+      generatePassword(passwordLength, {
+        withLower: lower,
+        withUpper: upper,
+        withNums: numbers,
+        withSpecial: special,
+      })
+    );
+  }, []);
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h1>Password Generator</h1>
+      <div className="card">{password}</div>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <Slider length={passwordLength} onChange={setPasswordLenght} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className="list">
+        <Checkbox
+          id="uppercase"
+          text="Include Uppercase Letters"
+          isChecked={upper}
+          onChange={setUpper}
+        />
+        <Checkbox
+          id="lowercase"
+          text="Include Lowercase Letters"
+          isChecked={lower}
+          onChange={setLower}
+        />
+        <Checkbox
+          id="numbers"
+          text="Include Numbers"
+          isChecked={numbers}
+          onChange={setNumbers}
+        />
+        <Checkbox
+          id="lowercase"
+          text="Include Symbols"
+          isChecked={special}
+          onChange={setSpecial}
+        />
+      </div>
+      <div className="card">
+        <button
+          onClick={() =>
+            setPassword(() =>
+              generatePassword(passwordLength, {
+                withLower: lower,
+                withUpper: upper,
+                withNums: numbers,
+                withSpecial: special,
+              })
+            )
+          }
+        >
+          Generate Password
+        </button>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
