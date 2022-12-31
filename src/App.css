@@ -4,8 +4,8 @@
   padding: 2rem;
   text-align: center;
   --neon-green: rgb(164 255 175);
-  --black: rgb(18, 18, 18);
-  --gray: #2a2e34;
+  --black: #24232C;
+  --dark: #18171F;
 }
 
 .App {
@@ -15,7 +15,7 @@
 
 .card {
   padding: 1rem 2rem;
-  background-color: #29323c;
+  background-color: var(--black);
 }
 
 .pass {
@@ -50,7 +50,7 @@
 }
 
 .btn:hover {
-  background-color: var(--gray);
+  background-color: var(--black);
   border: .25rem solid var(--neon-green);
   color: var(--neon-green);
 }
