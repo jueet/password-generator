@@ -74,19 +74,7 @@ function App() {
             onChange={setSpecial}
           />
         </div>
-        <button
-          className="btn"
-          onClick={() =>
-            setPassword(() =>
-              generatePassword(passwordLength, {
-                withLower: lower,
-                withUpper: upper,
-                withNums: numbers,
-                withSpecial: special,
-              })
-            )
-          }
-        >
+        <button className="btn" onClick={() => handleGeneratePassword()}>
           Generate
         </button>
       </div>
