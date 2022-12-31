@@ -14,16 +14,19 @@ function App() {
   const [numbers, setNumbers] = useState(true);
   const [special, setSpecial] = useState(false);
 
-  const handleGeneratePassword = () =>
-    generatePassword(passwordLength, {
-      withLower: lower,
-      withUpper: upper,
-      withNums: numbers,
-      withSpecial: special,
-    });
+  const handleGeneratePassword = () => {
+    setPassword(() =>
+      generatePassword(passwordLength, {
+        withLower: lower,
+        withUpper: upper,
+        withNums: numbers,
+        withSpecial: special,
+      })
+    );
+  };
 
   useEffect(() => {
-    setPassword(() => handleGeneratePassword());
+    handleGeneratePassword();
   }, [passwordLength, lower, upper, numbers, special]);
 
   return (
