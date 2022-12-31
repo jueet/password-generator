@@ -1,64 +1,61 @@
 import styles from "./StrengthMeter.module.css";
 
 interface Props {
-  text: string;
+  password: string;
+  poolSize: number;
 }
 
-const strongPassword = new RegExp(
-  "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})"
-);
-const mediumPassword = new RegExp(
-  "((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))  "
-);
+const StrengthChecker = ({ password, poolSize }: Props) => {
+  const strength = password.length * Math.log2(poolSize);
 
-const StrengthChecker = (PasswordParameter: string) => {
-  if (strongPassword.test(PasswordParameter)) {
-    return LevelIndicator.STRONG;
-  } else if (mediumPassword.test(PasswordParameter)) {
-    return LevelIndicator.MEDIUM;
+  if (strength < 50) {
+    return StrngthIndicator.WEAK;
+  } else if (strength >= 50 && strength < 75) {
+    return StrngthIndicator.MEDIUM;
   } else {
-    return LevelIndicator.WEAK;
+    return StrngthIndicator.STRONG;
   }
 };
 
-const LevelIndicator = {
+const StrngthIndicator = {
   STRONG: {
     text: "strong",
+    color: "green",
     level: 4,
   },
   MEDIUM: {
     text: "medium",
-    level: 2,
+    color: "yellow",
+    level: 3,
   },
   WEAK: {
     text: "weak",
+    color: "red",
     level: 1,
   },
 };
 
 function StrengthMeter(props: Props) {
-  const strengthBadge = StrengthChecker(props.text);
-  const units = [];
+  const { text, color, level } = StrengthChecker(props);
+  const bar = [];
   let unit;
 
   for (let i = 0; i < 4; i++) {
     unit =
-      i < strengthBadge.level ? (
-        <div className={styles.unit + " " + styles.full} key={i}></div>
+      i < level ? (
+        <div className={styles.bar + " " + styles[color]} key={i}></div>
       ) : (
-        <div className={styles.unit} key={i}></div>
+        <div className={styles.bar} key={i}></div>
       );
-    units.push(unit);
+    bar.push(unit);
   }
 
   return (
     <div className={styles.container}>
       <p className="uppercase">strength</p>
       <div className={styles.meter}>
-        <span className={styles["meter-text"] + " " + "uppercase"}>
-          {strengthBadge.text}
-        </span>
-        {units}
+        <span className={styles["meter-text"] + " " + "uppercase"}>{text}</span>
+        {bar}
       </div>
     </div>
   );

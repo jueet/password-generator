@@ -10,20 +10,21 @@ import { generatePassword } from "./utils/pass-generator";
 function App() {
   const [password, setPassword] = useState("");
   const [passwordLength, setPasswordLenght] = useState(8);
+  const [dictSize, setDictSize] = useState(0);
   const [upper, setUpper] = useState(true);
   const [lower, setLower] = useState(true);
   const [numbers, setNumbers] = useState(true);
   const [special, setSpecial] = useState(false);
 
   const handleGeneratePassword = () => {
-    setPassword(() =>
-      generatePassword(passwordLength, {
-        withLower: lower,
-        withUpper: upper,
-        withNums: numbers,
-        withSpecial: special,
-      })
-    );
+    let [pass, dictSize] = generatePassword(passwordLength, {
+      withLower: lower,
+      withUpper: upper,
+      withNums: numbers,
+      withSpecial: special,
+    });
+    setPassword(() => pass);
+    setDictSize(() => dictSize);
   };
 
   useEffect(() => {
@@ -79,7 +80,7 @@ function App() {
           />
         </div>
         <div>
-          <StrengthMeter text={password} />
+          <StrengthMeter password={password} poolSize={dictSize} />
         </div>
         <button className="btn" onClick={() => handleGeneratePassword()}>
           Generate

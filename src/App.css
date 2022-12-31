@@ -3,10 +3,11 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  --neon-green: rgb(164 255 175);
+  --neon-green: #a4ffaf;
+  --neon-yellow: #FFF205;
+  --neon-red: #FE0000;
   --black: #24232C;
   --dark: #18171F;
-  --yellow: #FCD36D;
 }
 
 .App {

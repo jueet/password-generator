@@ -27,7 +27,7 @@
   margin-right: 1rem;
 }
 
-.unit {
+.bar {
   display: block;
   width: 6px;
   height: 1.15rem;
@@ -35,9 +35,22 @@
   border: 2px solid whitesmoke;
 }
 
-.full {
-  background-color: var(--yellow);
+.red,
+.green,
+.yellow {
   border: 2px solid transparent;
+}
+
+.red {
+  background-color: var(--neon-red);
+}
+
+.yellow {
+  background-color: var(--neon-yellow);
+}
+
+.green {
+  background-color: var(--neon-green);
 }
 
 .unit:last-of-type {

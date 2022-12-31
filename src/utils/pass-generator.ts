@@ -10,25 +10,27 @@ interface IOptions {
   withSpecial?: boolean;
 }
 
-function generatePassword(length: Number = 8, options: IOptions): string {
+function generatePassword(
+  length: Number = 8,
+  options: IOptions
+): [string, number] {
   const CharGroup = createDict(options);
   const CharGroupLenght = CharGroup.length;
   let password = "";
-  let random = 0;
+  let index = 0;
   for (let i = 0; i < length; i++) {
-    random = Math.floor(Math.random() * CharGroupLenght);
-    const index = Math.floor(Math.random() * CharGroup[random].length);
-    password += CharGroup[random][index];
+    index = Math.floor(Math.random() * CharGroupLenght);
+    password += CharGroup[index];
   }
-  return password;
+  return [password, CharGroupLenght];
 }
 
-function createDict(options: IOptions): Array<String> {
-  let dict = [];
-  if (options.withLower) dict.push(lowCase);
-  if (options.withUpper) dict.push(upCase);
-  if (options.withNums) dict.push(Numbers);
-  if (options.withSpecial) dict.push(SpecialChar);
+function createDict(options: IOptions): String {
+  let dict = "";
+  if (options.withLower) dict += lowCase;
+  if (options.withUpper) dict += upCase;
+  if (options.withNums) dict += Numbers;
+  if (options.withSpecial) dict += SpecialChar;
   return dict;
 }
 
