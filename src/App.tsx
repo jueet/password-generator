@@ -3,6 +3,7 @@ import "./App.css";
 import Checkbox from "./components/Checkbox";
 import CopyFile from "./components/CopyFile";
 import Slider from "./components/Slider";
+import StrengthMeter from "./components/StrengthMeter";
 import copyToClipboard from "./utils/copy-clipboard";
 import { generatePassword } from "./utils/pass-generator";
 
@@ -76,6 +77,9 @@ function App() {
             isChecked={special}
             onChange={setSpecial}
           />
+        </div>
+        <div>
+          <StrengthMeter text={password} />
         </div>
         <button className="btn" onClick={() => handleGeneratePassword()}>
           Generate
