@@ -26,38 +26,47 @@ function App() {
   return (
     <div className="App">
       <h1>Password Generator</h1>
-      <div className="card">{password}</div>
-      <div className="card">
-        <Slider length={passwordLength} onChange={setPasswordLenght} />
-      </div>
-      <div className="list">
-        <Checkbox
-          id="uppercase"
-          text="Include Uppercase Letters"
-          isChecked={upper}
-          onChange={setUpper}
-        />
-        <Checkbox
-          id="lowercase"
-          text="Include Lowercase Letters"
-          isChecked={lower}
-          onChange={setLower}
-        />
-        <Checkbox
-          id="numbers"
-          text="Include Numbers"
-          isChecked={numbers}
-          onChange={setNumbers}
-        />
-        <Checkbox
-          id="lowercase"
-          text="Include Symbols"
-          isChecked={special}
-          onChange={setSpecial}
-        />
+      <div className="card pass">
+        <div className="pass-text">{password}</div>
+        <div>Copy</div>
       </div>
       <div className="card">
+        <Slider
+          length={passwordLength}
+          onChange={setPasswordLenght}
+          initial={passwordLength}
+          min={4}
+          max={16}
+        />
+
+        <div className="list">
+          <Checkbox
+            id="uppercase"
+            text="Include Uppercase Letters"
+            isChecked={upper}
+            onChange={setUpper}
+          />
+          <Checkbox
+            id="lowercase"
+            text="Include Lowercase Letters"
+            isChecked={lower}
+            onChange={setLower}
+          />
+          <Checkbox
+            id="numbers"
+            text="Include Numbers"
+            isChecked={numbers}
+            onChange={setNumbers}
+          />
+          <Checkbox
+            id="special"
+            text="Include Symbols"
+            isChecked={special}
+            onChange={setSpecial}
+          />
+        </div>
         <button
+          className="btn"
           onClick={() =>
             setPassword(() =>
               generatePassword(passwordLength, {
@@ -69,7 +78,7 @@ function App() {
             )
           }
         >
-          Generate Password
+          Generate
         </button>
       </div>
     </div>
