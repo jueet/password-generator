@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .pass-text {
@@ -53,7 +54,21 @@
   color: var(--neon-green);
 }
 
-.length-selector {}
+.copy-btn:hover,
+.btn:hover {
+  cursor: pointer;
+}
+
+
+.copy-btn>svg {
+  color: var(--neon-green);
+  height: 2rem;
+  width: 2rem;
+}
+
+.copy-btn:hover>svg {
+  color: whitesmoke;
+}
 
 .char-length {
   display: flex;
