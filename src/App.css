@@ -10,11 +10,12 @@
 
 .App {
   width: 500px;
+  font-size: 1.15rem;
 }
 
 .card {
   padding: 1rem 2rem;
-  background-color: var(--gray);
+  background-color: #29323c;
 }
 
 .pass {
@@ -28,14 +29,14 @@
 
 .pass-text {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 .btn {
@@ -74,6 +75,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
   padding: 0;
   width: 100%;
 }
@@ -124,4 +127,17 @@ input[type="checkbox" i] {
 
 input[type="checkbox" i]:checked {
   background: var(--neon-green);
+}
+
+h1 {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 60%;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
 }

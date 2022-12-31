@@ -1,3 +1,5 @@
+import styles from "./Checkbox.module.css";
+
 interface CheckboxProps {
   isChecked: boolean;
   onChange: (value: boolean) => void;
@@ -8,7 +10,7 @@ interface CheckboxProps {
 function Checkbox({ isChecked, onChange, text, id }: CheckboxProps) {
   return (
     <>
-      <label htmlFor={id}>
+      <label htmlFor={id} className={styles.container}>
         <input
           type="checkbox"
           name={id}
@@ -16,6 +18,7 @@ function Checkbox({ isChecked, onChange, text, id }: CheckboxProps) {
           checked={isChecked}
           onChange={(e) => onChange(!isChecked)}
         />
+        <span className={styles.checkmark}></span>
         {text}
       </label>
     </>
