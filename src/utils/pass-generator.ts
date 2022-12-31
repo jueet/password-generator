@@ -13,7 +13,6 @@ interface IOptions {
 function generatePassword(length: Number = 8, options: IOptions): string {
   const CharGroup = createDict(options);
   const CharGroupLenght = CharGroup.length;
-  console.log(CharGroup);
   let password = "";
   let random = 0;
   for (let i = 0; i < length; i++) {
