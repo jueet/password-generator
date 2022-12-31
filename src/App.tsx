@@ -8,6 +8,7 @@ import copyToClipboard from "./utils/copy-clipboard";
 import { generatePassword } from "./utils/pass-generator";
 
 function App() {
+  const [title, setTitle] = useState("Password Generator");
   const [password, setPassword] = useState("");
   const [passwordLength, setPasswordLenght] = useState(8);
   const [dictSize, setDictSize] = useState(0);
@@ -27,19 +28,29 @@ function App() {
     setDictSize(() => dictSize);
   };
 
+  const handleCopyToClipboard = () => {
+    let tmp = "";
+    copyToClipboard(password);
+    setTitle((prev) => {
+      tmp = prev;
+      return "Password Copied!";
+    });
+    setTimeout(() => setTitle(() => tmp), 1000);
+  };
+
   useEffect(() => {
     handleGeneratePassword();
   }, [passwordLength, lower, upper, numbers, special]);
 
   return (
     <div className="App">
-      <h1>Password Generator</h1>
+      <h1>{title}</h1>
       <div className="card pass">
         <div className="pass-text" id="password">
           {password}
         </div>
         <div>
-          <a onClick={copyToClipboard} className="copy-btn">
+          <a onClick={handleCopyToClipboard} className="copy-btn">
             <CopyFile />
           </a>
         </div>
