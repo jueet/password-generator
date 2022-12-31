@@ -6,11 +6,16 @@
   --neon-green: rgb(164 255 175);
   --black: #24232C;
   --dark: #18171F;
+  --yellow: #FCD36D;
 }
 
 .App {
   width: 500px;
   font-size: 1.15rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .card {
@@ -36,7 +41,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 2rem 0;
+  margin: 2rem 0 1rem 0;
 }
 
 .btn {

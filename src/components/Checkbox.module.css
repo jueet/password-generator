@@ -47,7 +47,7 @@
   width: 5px;
   height: 10px;
   margin-left: 4px;
-  border: solid var(--gray);
+  border: solid var(--black);
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
