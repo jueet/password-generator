@@ -46,7 +46,10 @@ function App() {
     <div className="App">
       <h1>{title}</h1>
       <div className="card pass">
-        <div className="pass-text" id="password">
+        <div
+          className={password === "Empty" ? "pass-text muted" : "pass-text"}
+          id="password"
+        >
           {password}
         </div>
         <div>

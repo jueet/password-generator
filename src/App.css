@@ -7,6 +7,7 @@
   --neon-yellow: #FFF205;
   --neon-red: #FE0000;
   --black: #24232C;
+  --gray: #5f5f5f;
   --dark: #18171F;
 }
 
@@ -17,6 +18,10 @@
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.muted {
+  color: var(--gray)
 }
 
 .card {
