@@ -37,12 +37,17 @@
 
 .red,
 .green,
-.yellow {
+.yellow,
+.orange {
   border: 2px solid transparent;
 }
 
 .red {
   background-color: var(--neon-red);
+}
+
+.orange {
+  background-color: var(--neon-orange);
 }
 
 .yellow {

@@ -5,18 +5,6 @@ interface Props {
   poolSize: number;
 }
 
-const StrengthChecker = ({ password, poolSize }: Props) => {
-  const strength = password.length * Math.log2(poolSize);
-
-  if (strength < 50) {
-    return StrngthIndicator.WEAK;
-  } else if (strength >= 50 && strength < 75) {
-    return StrngthIndicator.MEDIUM;
-  } else {
-    return StrngthIndicator.STRONG;
-  }
-};
-
 const StrngthIndicator = {
   STRONG: {
     text: "strong",
@@ -30,32 +18,48 @@ const StrngthIndicator = {
   },
   WEAK: {
     text: "weak",
+    color: "orange",
+    level: 2,
+  },
+  TOWEAK: {
+    text: "to weak",
     color: "red",
     level: 1,
   },
 };
 
+const StrengthChecker = ({ password, poolSize }: Props) => {
+  const strength = password.length * Math.log2(poolSize);
+  if (strength < 35) {
+    return StrngthIndicator.TOWEAK;
+  } else if (strength < 50) {
+    return StrngthIndicator.WEAK;
+  } else if (strength >= 50 && strength < 75) {
+    return StrngthIndicator.MEDIUM;
+  } else {
+    return StrngthIndicator.STRONG;
+  }
+};
+
 function StrengthMeter(props: Props) {
   const { text, color, level } = StrengthChecker(props);
-  const bar = [];
-  let unit;
-
-  for (let i = 0; i < 4; i++) {
-    unit =
-      i < level ? (
-        <div className={styles.bar + " " + styles[color]} key={i}></div>
-      ) : (
-        <div className={styles.bar} key={i}></div>
-      );
-    bar.push(unit);
-  }
-
   return (
     <div className={styles.container}>
       <p className="uppercase">strength</p>
       <div className={styles.meter}>
         <span className={styles["meter-text"] + " " + "uppercase"}>{text}</span>
-        {bar}
+        <div
+          className={styles.bar + " " + (level > 0 ? styles[color] : "")}
+        ></div>
+        <div
+          className={styles.bar + " " + (level > 1 ? styles[color] : "")}
+        ></div>
+        <div
+          className={styles.bar + " " + (level > 2 ? styles[color] : "")}
+        ></div>
+        <div
+          className={styles.bar + " " + (level > 3 ? styles[color] : "")}
+        ></div>
       </div>
     </div>
   );
