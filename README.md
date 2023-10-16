@@ -2,6 +2,8 @@
 
 This is a solution to the [Password generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+[![Deploy to GitHub Pages](https://img.shields.io/github/actions/workflow/status/MrOlivo/password-generator/deploy.yml?style=for-the-badge&labelColor=363a4f&color=b7bdf8)](https://github.com/MrOlivo/password-generator/actions/workflows/deploy.yml)
+
 ## Table of contents
 
 - [Overview](#overview)
