@@ -38,7 +38,8 @@
 .red,
 .green,
 .yellow,
-.orange {
+.orange, 
+.blue {
   border: 2px solid transparent;
 }
 
@@ -56,6 +57,10 @@
 
 .green {
   background-color: var(--neon-green);
+}
+
+.blue {
+  background-color: var(--neon-blue);
 }
 
 .unit:last-of-type {
