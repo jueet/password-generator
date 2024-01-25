@@ -20,7 +20,7 @@ function generatePassword(
   const CharGroupLenght = CharGroup.length;
   let password = "";
   let index = 0;
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < length.valueOf(); i++) {
     index = Math.floor(Math.random() * CharGroupLenght);
     password += CharGroup[index];
   }
