@@ -12,7 +12,7 @@ interface IOptions {
 
 function generatePassword(
   length: Number = 8,
-  options: IOptions
+  options: IOptions,
 ): [string, number] {
   if (Object.entries(options).every(([, value]) => !value)) return ["Empty", 0];
 

@@ -20,12 +20,12 @@
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input~.checkmark {
+.container:hover input ~ .checkmark {
   border-color: var(--neon-green);
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked~.checkmark {
+.container input:checked ~ .checkmark {
   background-color: var(--neon-green);
   border-color: var(--neon-green);
 }
@@ -38,7 +38,7 @@
 }
 
 /* Show the checkmark when checked */
-.container input:checked~.checkmark:after {
+.container input:checked ~ .checkmark:after {
   display: block;
 }
 

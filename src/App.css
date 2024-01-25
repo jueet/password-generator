@@ -4,13 +4,13 @@
   padding: 2rem;
   text-align: center;
   --neon-green: #a4ffaf;
-  --neon-yellow: #FFF205;
-  --neon-red: #FE0000;
-  --neon-orange: #FF5733;
+  --neon-yellow: #fff205;
+  --neon-red: #fe0000;
+  --neon-orange: #ff5733;
   --neon-blue: #4db8ff;
-  --black: #24232C;
+  --black: #24232c;
   --gray: #5f5f5f;
-  --dark: #18171F;
+  --dark: #18171f;
 }
 
 .App {
@@ -23,7 +23,7 @@
 }
 
 .muted {
-  color: var(--gray)
+  color: var(--gray);
 }
 
 .card {
@@ -59,12 +59,12 @@
   padding: 1rem 0rem;
   font-weight: 700;
   font-size: 1.5rem;
-  border: .25rem solid transparent;
+  border: 0.25rem solid transparent;
 }
 
 .btn:hover {
   background-color: var(--black);
-  border: .25rem solid var(--neon-green);
+  border: 0.25rem solid var(--neon-green);
   color: var(--neon-green);
 }
 
@@ -73,14 +73,13 @@
   cursor: pointer;
 }
 
-
-.copy-btn>svg {
+.copy-btn > svg {
   color: var(--neon-green);
   height: 2rem;
   width: 2rem;
 }
 
-.copy-btn:hover>svg {
+.copy-btn:hover > svg {
   color: whitesmoke;
 }
 
