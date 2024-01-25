@@ -94,7 +94,7 @@ function App() {
           />
         </div>
         <div>
-          <StrengthMeter password={password} poolSize={dictSize} />
+          <StrengthMeter password={password} />
         </div>
         <button className="btn" onClick={() => handleGeneratePassword()}>
           Generate
