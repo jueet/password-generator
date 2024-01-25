@@ -32,4 +32,23 @@ function validatePasswordStrength(password: string): PasswordStrength {
   return { level, color };
 }
 
-export { validatePasswordStrength };
+function levelToText(strength: number) {
+  switch (strength) {
+    case 0:
+    case 1:
+      return 'Very Weak';
+    case 2:
+      return 'Weak';
+    case 3:
+      return 'Medium';
+    case 4:
+      return 'Strong';
+    case 5:
+    case 6:
+      return 'Very Strong';
+    default:
+      return 'Very Weak';
+  }
+}
+
+export { validatePasswordStrength, levelToText };
