@@ -16,7 +16,7 @@ function Checkbox({ isChecked, onChange, text, id }: CheckboxProps) {
           name={id}
           id={id}
           checked={isChecked}
-          onChange={(e) => onChange(!isChecked)}
+          onChange={() => onChange(!isChecked)}
         />
         <span className={styles.checkmark}></span>
         {text}
