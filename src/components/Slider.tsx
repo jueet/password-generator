@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import { ChangeEvent } from "react";
 
 interface SliderProps {
   length: number;
@@ -9,7 +9,7 @@ interface SliderProps {
 }
 
 function Slider({ length, onChange, initial, min, max }: SliderProps) {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(parseInt(e.target.value));
     setBackgroundSize(e.target, parseInt(e.target.value));
   };
