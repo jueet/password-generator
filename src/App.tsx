@@ -33,9 +33,9 @@ function App() {
     copyToClipboard(password);
     setTitle((prev) => {
       tmp = prev;
-      return "Password Copied!";
+      return "Copied!";
     });
-    setTimeout(() => setTitle(() => tmp), 1000);
+    setTimeout(() => setTitle(tmp), 1300);
   };
 
   useEffect(() => {
