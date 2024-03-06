@@ -4,30 +4,31 @@ type PasswordStrength = {
 };
 
 function validatePasswordStrength(password: string): PasswordStrength {
-  let level = 0;
-  let color = "red";
+  const lengthLevel = password.length >= 12 ? 2 : password.length >= 8 ? 1 : 0;
+  const containsNumbers = /\d/.test(password) ? 1 : 0;
+  const containsLowercase = /[a-z]/.test(password) ? 1 : 0;
+  const containsUppercase = /[A-Z]/.test(password) ? 1 : 0;
+  const containsSpecialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password) ? 1 : 0;
 
-  // Check password length
-  if (password.length >= 8) level++;
-  if (password.length >= 12) level++;
+  const level = lengthLevel + containsNumbers + containsLowercase + containsUppercase + containsSpecialChars;
 
-  // Check if password contains numbers
-  if (/\d/.test(password)) level++;
-
-  // Check if password contains lowercase letters
-  if (/[a-z]/.test(password)) level++;
-
-  // Check if password contains uppercase letters
-  if (/[A-Z]/.test(password)) level++;
-
-  // Check if password contains special characters
-  if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password)) level++;
-
-  // Assign color based on strength level
-  if (level >= 5) color = "green";
-  else if (level >= 4) color = "blue";
-  else if (level >= 3) color = "yellow";
-  else if (level >= 2) color = "orange";
+  let color: string;
+  switch (level) {
+    case 6:
+      color = "green";
+      break;
+    case 5:
+      color = "blue";
+      break;
+    case 4:
+      color = "yellow";
+      break;
+    case 3:
+      color = "orange";
+      break;
+    default:
+      color = "red";
+  }
 
   return { level, color };
 }
