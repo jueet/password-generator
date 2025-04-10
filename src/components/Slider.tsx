@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect } from "react";
 
 interface SliderProps {
   length: number;
@@ -17,6 +17,14 @@ function Slider({ length, onChange, initial, min, max }: SliderProps) {
   const setBackgroundSize = (e: HTMLElement, value: number = initial) => {
     e.style.backgroundSize = ((value - min) * 100) / (max - min) + "% 100%";
   };
+
+  // Run setBackgroundSize when the component is mounted
+  useEffect(() => {
+    const sliderElement = document.getElementById("length") as HTMLInputElement;
+    if (sliderElement) {
+      setBackgroundSize(sliderElement, length);
+    }
+  }, []);
 
   return (
     <div className="length-selector">
