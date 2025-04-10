@@ -64,7 +64,7 @@ function App() {
           onChange={setPasswordLenght}
           initial={passwordLength}
           min={4}
-          max={16}
+          max={32}
         />
 
         <div className="list">
