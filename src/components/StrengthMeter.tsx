@@ -17,7 +17,7 @@ function StrengthMeter({ password }: Props) {
         <span className={styles["meter-text"] + " " + "uppercase"}>
           {levelToText(Strength.level)}
         </span>
-        {[...Array(6)].map((_, index) => (
+        {[...Array(8)].map((_, index) => (
           <div
             key={index}
             className={
