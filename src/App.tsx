@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import Checkbox from "./components/Checkbox";
-import CopyFile from "./components/CopyFile";
-import Slider from "./components/Slider";
-import StrengthMeter from "./components/StrengthMeter";
-import copyToClipboard from "./utils/copy-clipboard";
-import { generatePassword } from "./utils/pass-generator";
+import "@/App.css";
+import Checkbox from "@components/Checkbox";
+import CopyFile from "@components/CopyFile";
+import Slider from "@components/Slider";
+import StrengthMeter from "@components/StrengthMeter";
+import copyToClipboard from "@utils/copy-clipboard";
+import { generatePassword } from "@utils/pass-generator";
 
 function App() {
   const [title, setTitle] = useState("Password Generator");
