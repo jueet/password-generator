@@ -1,8 +1,8 @@
 import {
   levelToText,
   validatePasswordStrength,
-} from "../utils/validate-password-strength";
-import styles from "./StrengthMeter.module.css";
+} from "@utils/validate-password-strength";
+import styles from "@styles/StrengthMeter.module.css";
 
 interface Props {
   password: string;

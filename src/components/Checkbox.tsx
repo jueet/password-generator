@@ -1,4 +1,4 @@
-import styles from "./Checkbox.module.css";
+import styles from "@styles/Checkbox.module.css";
 
 interface CheckboxProps {
   isChecked: boolean;
