@@ -1,0 +1,9 @@
+# Lock files
+*.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Deployment files
+deploy.yml
+.github/workflows/deploy.yml
