@@ -6,6 +6,7 @@ import Slider from "@components/Slider";
 import StrengthMeter from "@components/StrengthMeter";
 import copyToClipboard from "@utils/copy-clipboard";
 import { generatePassword } from "@utils/pass-generator";
+import StyledPassword from "@components/StyledPassword";
 
 function App() {
   const [title, setTitle] = useState("Password Generator");
@@ -50,7 +51,7 @@ function App() {
           className={password === "Empty" ? "pass-text muted" : "pass-text"}
           id="password"
         >
-          {password}
+          <StyledPassword password={password} />
         </div>
         <div>
           <a onClick={handleCopyToClipboard} className="copy-btn">
@@ -64,7 +65,7 @@ function App() {
           onChange={setPasswordLenght}
           initial={passwordLength}
           min={4}
-          max={32}
+          max={128}
         />
 
         <div className="list">
