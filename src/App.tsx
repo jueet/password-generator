@@ -11,7 +11,7 @@ import StyledPassword from "@components/StyledPassword";
 function App() {
   const [title, setTitle] = useState("Password Generator");
   const [password, setPassword] = useState("");
-  const [passwordLength, setPasswordLenght] = useState(8);
+  const [passwordLength, setPasswordLength] = useState(16);
   const [dictSize, setDictSize] = useState(0);
   const [upper, setUpper] = useState(true);
   const [lower, setLower] = useState(true);
@@ -62,7 +62,7 @@ function App() {
       <div className="card">
         <Slider
           length={passwordLength}
-          onChange={setPasswordLenght}
+          onChange={setPasswordLength}
           initial={passwordLength}
           min={4}
           max={128}
