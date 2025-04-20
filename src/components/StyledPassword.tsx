@@ -5,12 +5,12 @@ interface Props {
 function StyledPassword({ password }: Props) {
   const getCharStyle = (char: string) => {
     if (/[0-9]/.test(char)) {
-      return { color: 'var(--neon-purple)' }; // Purple for numbers
+      return { color: 'var(--neon-lime)' };
     }
-    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(char)) {
-      return { color: 'var(--neon-green' }; // Green for special chars
+    if (/[!@#$%^&£*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(char)) {
+      return { color: 'var(--neon-cyan' };
     }
-    return {}; // Default color for other chars
+    return {color: 'var(--neon-purple)'}; // Default color for other chars
   };
 
   return (
